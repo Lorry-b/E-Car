@@ -33,6 +33,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_220304) do
     t.date "start_availability"
     t.date "end_availability"
     t.bigint "user_id", null: false
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture_url"
