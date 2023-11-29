@@ -1,12 +1,13 @@
-<h1>Confirmation and paiement</h1>
-
-<h3>Your location recap</h3>
-<br>
-<p><strong>Dates</strong></p>
-<p>From <%= @booking.starting_date %> to <%= @booking.ending_date %></p>
-<br><br>
-<h3>Your vehicule</h3>
-<p><%= @booking.car_id %></p>
-<br><br>
-<h3>Price details</h3>
-<p>Total : <%= @booking.total_price %></p>
+<div class="container">
+  <h1>Booking request</h1>
+  <br>
+  <%= @car.brand %>
+  <%= @car.category %>
+  <%= @car.location %>
+  <br><br>
+  <%= simple_form_for([@car, @booking]) do |f| %>
+  <%= f.input :starting_date %>
+  <%= f.input :ending_date %>
+  <%= f.submit %>
+<% end %>
+</div>

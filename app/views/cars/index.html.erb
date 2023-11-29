@@ -1,6 +1,9 @@
-<h1>here are our cars</h1>
-<ul>
+<div class="container">
+  <h1>Our cars ready to be rent</h1>
+  <br>
+  <ul>
   <% @cars.each do |car| %>
     <li><strong>Brand:</strong><%= car.brand %></li>
   <% end %>
-</ul>
+  </ul>
+</div>
