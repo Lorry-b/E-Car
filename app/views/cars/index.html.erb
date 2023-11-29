@@ -3,7 +3,8 @@
   <br>
   <ul>
   <% @cars.each do |car| %>
-    <li><strong>Brand:</strong><%= car.brand %></li>
+    <li><%= car.brand %></li>
+    <%= link_to "see details", car_path(car) %>
   <% end %>
   </ul>
 </div>

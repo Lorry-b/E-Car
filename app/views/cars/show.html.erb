@@ -7,4 +7,6 @@
     <li>end_availability: <%= @car.end_availability%></li>
     <li><%= image_tag @car.picture_url %></li>
 </ul>
+
+<div><%= link_to "Request Booking", new_car_booking_path(@car), class:"btn btn-primary" %></div>
 </div>
