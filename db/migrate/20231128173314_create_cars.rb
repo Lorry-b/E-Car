@@ -7,6 +7,7 @@ class CreateCars < ActiveRecord::Migration[7.1]
       t.date :start_availability
       t.date :end_availability
       t.references :user, null: false, foreign_key: true
+      t.integer :price
 
       t.timestamps
     end
