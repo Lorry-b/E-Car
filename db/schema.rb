@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_220304) do
     t.date "ending_date"
     t.string "status"
     t.integer "total_price"
+    t.string "status", default: "Pending"
     t.bigint "car_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -34,6 +35,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_220304) do
     t.date "start_availability"
     t.date "end_availability"
     t.bigint "user_id", null: false
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture_url"
@@ -51,7 +53,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_220304) do
     t.string "first_name"
     t.string "last_name"
     t.string "username"
-    t.boolean "owner"
+    t.boolean "owner", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
