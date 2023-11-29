@@ -1,8 +1,10 @@
-<h1>the detais of my car</h1>
+<div class="container">
+<h1><strong><%= @car.brand %></strong></h1>
 <ul>
-    <li><strong>Brand: </strong><%= @car.brand %></li>
     <li>category: <%= @car.category %></li>
     <li>location: <%= @car.location %></li>
     <li>start_availability: <%= @car.start_availability %></li>
     <li>end_availability: <%= @car.end_availability%></li>
+    <li><%= image_tag @car.picture_url %></li>
 </ul>
+</div>
