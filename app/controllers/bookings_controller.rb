@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:edit, :update]
   def new
     @booking = Booking.new
     @car = Car.find(params[:car_id])
@@ -18,9 +19,29 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    validate_owner!
+  end
+
+  def update
+    validate_owner!
+    @booking.update(booking_params)
+    redirect_to booking_path(@booking)
+  end
+
   private
 
   def booking_params
-    params.require(:booking).permit(:starting_date, :ending_date)
+    params.require(:booking).permit(:starting_date, :ending_date, :status)
+  end
+
+  def validate_owner!
+    if @booking.car.user != current_user
+      redirect_to cars_path, alert: "You're not the owner of the car."
+    end
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 end
