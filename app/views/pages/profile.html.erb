@@ -1,17 +1,17 @@
 <%# TO DO : front-end + add info %>
 
 <div class="container">
-  <h2><strong><%= current_user.first_name%> <%=current_user.last_name %></strong></h2>
-
-  <h5 class="title">ACCOUNT INFORMATIONS</h5>
+  <h2 class="title"><strong> Welcome <%= current_user.first_name%> <%=current_user.last_name %></strong></h2>
+  <br>
+  <h3 class="title">Account informations</h3>
   <div>
-      <p><strong>Username: </strong><%=current_user.username%></p>
-      <p><strong>Email: </strong><%=current_user.email%></p>
+      <h6><strong>Username: </strong><%=current_user.username%></h6>
+      <h6><strong>Email: </strong><%=current_user.email%></h6>
   </div>
 
   <br><br>
 
-  <h5 class="title">BOOKING REQUESTS</h5>
+  <h3 class="title">Booking requests</h3>
   <% current_user.bookings.each do |booking| %>
   <div class="card mb-3 rounded shadow" style="max-width: 540px;">
     <div class="row g-0">

@@ -1,11 +1,10 @@
 <div class="container">
-  <h1 class="text-center"><%= current_user.first_name%> <%=current_user.last_name %></h1>
+  <h2 class="title"><%= current_user.first_name%> <%=current_user.last_name %></h2>
 
   <div class="mt-3 mb-2">
-    <h2>Account informations</h2>
-    <h5><strong>Username: </strong><%=current_user.username%></h5>
-    <h5><strong>Email: </strong><%=current_user.email%></h5>
-
+    <h3 class="title">Account informations</h3>
+    <h6><strong>Username: </strong><%=current_user.username%></h6>
+    <h6><strong>Email: </strong><%=current_user.email%></h6>
   </div>
 
   <div class="mt-4">
@@ -14,10 +13,12 @@
       <% end %>
   </div>
 
+<br>
+
   <div class="mt-4 mb-2">
     <% if current_user.owner == true %>
 
-      <h2> My cars for rent </h2>
+      <h2 class="title"> My cars for rent </h2>
 
       <div class="flex-container-cars-owner mt-4">
           <% current_user.cars.each do |car| %>
@@ -30,9 +31,9 @@
           <% end %>
       </div>
   </div>
-
+<br>
   <div class="mt-4 mb-2">
-    <h2 class="mb-4"> Booking requests received </h2>
+    <h2 class="mb-4 title"> Booking requests received </h2>
       <% @booking.each do |booking| %>
         <% if current_user == booking.car.user %>
           <div class="card mb-3 rounded shadow" style="max-width: 540px;">

@@ -3,11 +3,22 @@
 .index-cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 6px;
+  grid-gap: px;
 }
 
 .search {
   height: 80;
   position: sticky;
   top: 80
+}
+
+.card {
+  box-shadow: 2px 2px 3px lightgray;
+  border: 1px solid lightgrey;
+  margin-top: 10px
+}
+.card-picture {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
