@@ -32,11 +32,17 @@
         <% if @cars.any? %>
           <% @cars.each do |car| %>
             <div class="card" style="width: 18rem;">
-              <%= image_tag(car.picture_url, size: "286x160") %>
+            <div class="car-picture">
+              <% if car.photo.attached? %>
+                <%= cl_image_tag(car.photo.key, size: "286x160") %>
+              <% else %>
+                <%= image_tag(car.picture_url, size: "286x160") %>
+              <% end %>
+              </div>
               <div class="card-body">
                 <h5 class="card-title text-center"><%= car.brand %></h5>
-                <p><%= car.category %></p>
-                <p>$<%=car.price %>/day</p>
+                <p class="text-center"><em><%= car.category %></em></p>
+                <p>$<%= car.price %>/day</p>
                 <h6>from <%= car.start_availability%> to <%= car.end_availability %></h6>
                 <%=link_to 'See details', car_path(car), class:"btn btn-primary mt-2"%>
               </div>

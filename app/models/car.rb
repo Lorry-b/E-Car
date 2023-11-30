@@ -2,6 +2,7 @@ class Car < ApplicationRecord
   CATEGORIES = ["SUV", "Pick-up", "Sport Car", "Sedan", "Hatchback"]
   belongs_to :user
   has_many :bookings
+  has_one_attached :photo
   validates :location, presence: true
   validates :start_availability, :end_availability, presence: true
   validates :brand, :category, presence: true
