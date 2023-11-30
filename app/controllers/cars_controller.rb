@@ -1,6 +1,17 @@
 class CarsController < ApplicationController
   def index
     @cars = Car.all
+    if params[:query].present?
+      @cars = @cars.search_by_brand_and_category(params[:query])
+    end
+
+    if params[:date_query].present?
+      @cars = @cars.where("start_availability <= ? AND end_availability >= ?", params[:date_query].to_datetime, params[:date_query].to_datetime)
+    end
+
+    if params[:end_date_query].present?
+      @cars = @cars.where("start_availability <= ? AND end_availability >= ?", params[:end_date_query].to_datetime, params[:end_date_query].to_datetime)
+    end
   end
 
   def show
