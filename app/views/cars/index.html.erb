@@ -6,7 +6,8 @@
               params[:query],
               class: "form-control",
               placeholder: "Find a car"
-          %>
+        %>
+
         <%= date_field_tag :date_query,
             params[:date_query],
             class: "form-control",
@@ -17,7 +18,7 @@
             params[:end_date_query],
             class: "form-control",
             placeholder: "Find a car"
-        %>
+          %>
 
         <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
         <% end %>

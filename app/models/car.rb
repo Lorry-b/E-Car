@@ -8,8 +8,8 @@ class Car < ApplicationRecord
   validates :category, inclusion: { in: CATEGORIES }
 
   include PgSearch::Model
-  pg_search_scope :search_by_brand_and_category,
-    against: [ :brand, :category ],
+  pg_search_scope :search_by_brand_and_category_and_location,
+    against: [ :brand, :category, :location ],
     using: {
       tsearch: { prefix: true }
     }
