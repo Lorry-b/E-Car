@@ -6,20 +6,20 @@
             class: "form-control",
             placeholder: "Find a car"
         %>
-        <%= date_field_tag :date_query,
-            params[:date_query],
-            class: "form-control",
-            placeholder: "Find a car"
-        %>
+      <%= date_field_tag :date_query,
+          params[:date_query],
+          class: "form-control",
+          placeholder: "Find a car"
+      %>
 
-         <%= date_field_tag :end_date_query,
-            params[:end_date_query],
-            class: "form-control",
-            placeholder: "Find a car"
-        %>
+        <%= date_field_tag :end_date_query,
+          params[:end_date_query],
+          class: "form-control",
+          placeholder: "Find a car"
+      %>
 
       <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
+      <% end %>
   </div>
 </div>
 
@@ -29,17 +29,16 @@
       <div id="cars">
         <% if @cars.any? %>
           <% @cars.each do |car| %>
-            <div class="card" style="width: 18rem;">
-              <%= image_tag(car.picture_url) %>
+            <div class="card mx-3" style="width: 18rem;">
+              <%= image_tag(car.picture_url, size: "286x160") %>
               <div class="card-body">
                 <h5 class="card-title"><%= car.brand %></h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">See details</a>
+                <p><%= car.category %></p>
+                <p>$<%= car.price %>/day</p>
+                <h6>from <%= car.start_availability%> to <%= car.end_availability %></h6>
+                <a href="#" class="btn btn-primary mt-2">See details</a>
               </div>
             </div>
-            <h4><%= car.brand %></h4>
-            <p><%= car.category %></p>
-            <p><%= car.price %></p>
           <% end %>
         <% else %>
           <em>Sorry, no cars found.</em>
