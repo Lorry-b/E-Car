@@ -1,0 +1,29 @@
+<div class="container">
+    <h1><%= current_user.first_name%> <%=current_user.last_name %></h1>
+    <br>
+    <h2>Account informations</h2>
+      <div>
+        <h5><strong>Username: </strong><%=current_user.username%></h5>
+        <h5><strong>Email: </strong><%=current_user.email%></h5>
+        <% if current_user.owner == true %>
+        <h2> My cars for rent </h2>
+        <div class="flex-container-cars-owner">
+            <% current_user.cars.each do |car| %>
+                <div class="card-product-owner" class="flex-item">
+                  <div class="card-info-owner">
+                    <p><%= car.brand %><p>
+                    <p>Availability period : from <%= car.start_availability %> to <%= car.end_availability %></p>
+                  </div>
+                </div>
+            <% end %>
+        </div>
+        <h2> Booking requests received </h2>
+
+        <% elsif %>
+            <h1>You're not a owner yet !</h1>
+            <p class="btn btn-primary">Click here to add your cars to rent.</p>
+        <% end %>
+
+      </div>
+    </div>
+</div>
