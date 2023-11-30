@@ -1,2 +1,13 @@
 // Import page-specific CSS files here.
 @import "home";
+.index-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 6px;
+}
+
+.search {
+  height: 80;
+  position: sticky;
+  top: 80
+}
