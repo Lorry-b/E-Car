@@ -39,7 +39,7 @@
                 <p><%= car.category %></p>
                 <p>$<%=car.price %>/day</p>
                 <h6>from <%= car.start_availability%> to <%= car.end_availability %></h6>
-                <div class="details"><a href="#" class="btn btn-primary mt-2">See details</a></div>
+                <%=link_to 'See details', car_path(car), class:"btn btn-primary mt-2"%>
               </div>
             </div>
           <% end %>

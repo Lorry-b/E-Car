@@ -8,5 +8,9 @@
     <li><%= image_tag @car.picture_url %></li>
 </ul>
 
-<div><%= link_to "Request Booking", new_car_booking_path(@car), class:"btn btn-primary" %></div>
+<div>
+  <% if @car.user != current_user %>
+    <%= link_to "Request Booking", new_car_booking_path(@car), class:"btn btn-primary" %>
+  <% end %>
+</div>
 </div>

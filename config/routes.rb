@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get "/profile", to: "pages#profile", as: :profile
+  get "/profile_owner", to: "pages#profile_owner", as: :profile_owner
   resources :bookings, only: [:edit, :update]
 end
