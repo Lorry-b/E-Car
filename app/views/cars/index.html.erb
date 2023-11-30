@@ -6,7 +6,8 @@
               params[:query],
               class: "form-control",
               placeholder: "Find a car"
-          %>
+        %>
+
         <%= date_field_tag :date_query,
             params[:date_query],
             class: "form-control",
@@ -17,7 +18,7 @@
             params[:end_date_query],
             class: "form-control",
             placeholder: "Find a car"
-        %>
+          %>
 
         <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
         <% end %>
@@ -38,7 +39,7 @@
                 <p><%= car.category %></p>
                 <p>$<%=car.price %>/day</p>
                 <h6>from <%= car.start_availability%> to <%= car.end_availability %></h6>
-                <a href="#" class="btn btn-primary mt-2">See details</a>
+                <div class="details"><a href="#" class="btn btn-primary mt-2">See details</a></div>
               </div>
             </div>
           <% end %>
