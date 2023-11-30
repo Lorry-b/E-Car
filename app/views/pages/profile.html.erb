@@ -3,7 +3,7 @@
 <div class="container">
   <h2><strong><%= current_user.first_name%> <%=current_user.last_name %></strong></h2>
 
-  <h5>ACCOUNT INFORMATIONS</h5>
+  <h5 class="title">ACCOUNT INFORMATIONS</h5>
   <div>
       <p><strong>Username: </strong><%=current_user.username%></p>
       <p><strong>Email: </strong><%=current_user.email%></p>
@@ -11,7 +11,7 @@
 
   <br><br>
 
-  <h5>BOOKING REQUESTS</h5>
+  <h5 class="title">BOOKING REQUESTS</h5>
   <% current_user.bookings.each do |booking| %>
   <div class="card mb-3 rounded shadow" style="max-width: 540px;">
     <div class="row g-0">
