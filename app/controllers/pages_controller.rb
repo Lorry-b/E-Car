@@ -7,5 +7,6 @@ class PagesController < ApplicationController
   end
 
   def profile_owner
+    @booking = Booking.all
   end
 end
