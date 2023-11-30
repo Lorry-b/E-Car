@@ -1,19 +1,34 @@
 <%# TO DO : front-end + add info %>
 
 <div class="container">
-    <h1><%= current_user.first_name%> <%=current_user.last_name %></h1>
-    <br>
-    <br>
-    <br>
-    <h2>Booking requests</h2>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+  <h2><strong><%= current_user.first_name%> <%=current_user.last_name %></strong></h2>
+
+  <h5>ACCOUNT INFORMATIONS</h5>
+  <div>
+      <p><strong>Username: </strong><%=current_user.username%></p>
+      <p><strong>Email: </strong><%=current_user.email%></p>
+  </div>
+
+  <br><br>
+
+  <h5>BOOKING REQUESTS</h5>
+  <% current_user.bookings.each do |booking| %>
+  <div class="card mb-3 rounded shadow" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src=<%= booking.car.picture_url %>  class="img-fluid rounded-start request-card-picture" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><strong><%= booking.car.brand %></strong></h5>
+          <p class="card-text"><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+          <p class="card-text"><small class="text-body-secondary">From <%= booking.starting_date %> to <%= booking.ending_date %></small></p>
+          <p class="card-text"><%= booking.status %></p>
+          <a class="btn btn-outline-primary" href=<%= edit_booking_path(booking)%> role="button">Review</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
 </div>
