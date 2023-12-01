@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:edit, :update]
+  before_action :set_booking, only: [:update]
 
   # def new
   #   @booking = Booking.new
@@ -20,12 +20,12 @@ class BookingsController < ApplicationController
     end
   end
 
-  def edit
-    validate_owner!
-  end
+  # def edit
+  #   validate_owner!
+  # end
 
   def update
-    validate_owner!
+    # validate_owner!
     @booking.update(booking_params)
     redirect_to booking_path(@booking)
   end

@@ -21,9 +21,15 @@
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title"><strong><%= booking.car.brand %></strong></h5>
-          <p class="card-text"><%= booking.user.first_name %> <%= booking.user.last_name %></p>
-          <p class="card-text"><small class="text-body-secondary">From <%= booking.starting_date %> to <%= booking.ending_date %></small></p>
-          <p class="card-text"><%= booking.status %></p>
+          <p class="card-text"><small class="text-body-secondary">From <%= booking.starting_date.strftime("%d/%m/%Y") %> to <%= booking.ending_date.strftime("%d/%m/%Y") %></small></p>
+          <p class="card-text">Total price: <strong>$<%= ((booking.ending_date - booking.starting_date) * booking.car.price).to_i %></strong>     <em>($<%= booking.car.price %>/day)</em></p>
+          <% if booking.status == "Pending" %>
+            <p class="card-text"><%= booking.status %></p>
+          <% elsif booking.status == "Accepted" %>
+            <p class="card-text" id="status-a"><%= booking.status %></p>
+          <% else booking.status == "Rejected" %>
+            <p class="card-text" id="status-r"><%= booking.status %></p>
+          <% end %>
         </div>
       </div>
     </div>

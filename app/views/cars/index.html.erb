@@ -43,7 +43,7 @@
               <div class="card-body text-center">
                 <h5 class="card-title text-center mb-4"><%= car.brand %></h5>
                 <p>$<%= car.price %>/day</p>
-                <h6>from <%= car.start_availability%> to <%= car.end_availability %></h6>
+                <h6>From <%= car.start_availability.strftime("%d/%m/%Y")%> to <%= car.end_availability.strftime("%d/%m/%Y") %></h6>
                 <%=link_to 'See details', car_path(car, start_date: params[:date_query], end_date: params[:end_date_query]), class:"btn btn-primary mt-2"%>
               </div>
             </div>
