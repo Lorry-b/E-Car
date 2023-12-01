@@ -1,10 +1,11 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:edit, :update]
-  def new
-    @booking = Booking.new
-    @car = Car.find(params[:car_id])
-    @booking.car = @car
-  end
+
+  # def new
+  #   @booking = Booking.new
+  #   @car = Car.find(params[:car_id])
+  #   @booking.car = @car
+  # end
 
   def create
     @booking = Booking.new(booking_params)

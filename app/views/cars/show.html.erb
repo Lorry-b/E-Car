@@ -12,7 +12,9 @@
     <div class = "col-5 border border-dark bg-dark text-white">
       <h3><em><%= @car.category%></em></h3>
       <div>Location: <%= @car.location %></div>
-      <div>Available from <%= @car.start_availability %> to <%= @car.end_availability%> </div>
+
+    <%= render "shared/new"%>
+
     </div>
   </div>
 
