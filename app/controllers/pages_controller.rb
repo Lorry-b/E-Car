@@ -7,6 +7,14 @@ class PagesController < ApplicationController
   end
 
   def profile_owner
-    @booking = Booking.all
+    @bookings = Booking.all
   end
+
+  # private
+
+  # # def validate_owner!
+  # #   if @booking.car.user != current_user
+  # #     redirect_to cars_path, alert: "You're not the owner of the car."
+  # #   end
+  # # end
 end

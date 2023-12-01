@@ -8,59 +8,67 @@
   </div>
 
   <div class="mt-4">
-      <% if current_user.owner == true %>
-        <%=link_to "Add a car", new_car_path, class: "btn btn-outline-primary"%>
-      <% end %>
+    <% if current_user.owner == true %>
+      <%=link_to "Add a car", new_car_path, class: "btn btn-outline-primary"%>
+    <% end %>
   </div>
 
-<br>
+  <br>
 
   <div class="mt-4 mb-2">
     <% if current_user.owner == true %>
 
       <h2 class="title"> My cars for rent </h2>
 
-      <div class="flex-container-cars-owner mt-4">
-          <% current_user.cars.each do |car| %>
-              <div class="card-product-owner" class="flex-item">
-                <div class="card-info-owner">
-                  <h6><strong><%= car.brand %></strong><h6>
-                  <p>Available from <%= car.start_availability %> to <%= car.end_availability %></p>
-                </div>
-              </div>
+      <div class="index-cards mt-4">
+        <% current_user.cars.each do |car| %>
+          <% if car.photo.attached? %>
+            <% car_picture_url = cl_image_path car.photo.key %>
+          <% else %>
+            <% car_picture_url = car.picture_url %>
           <% end %>
+
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= car_picture_url %>)">
+            <a href="#"><%= car.brand %></a>
+          </div>
+        <% end %>
       </div>
+
+    <% else %>
+    <div class="sign-up-owner">
+      <h2 class="title ">You are not a owner yet !</h2>
+      <br>
+      <%=link_to "Add a car to rent", new_car_path, class: "btn btn-primary"%>
+    </div>
+    <% end %>
   </div>
-<br>
+
+  <br>
+
   <div class="mt-4 mb-2">
-    <h2 class="mb-4 title"> Booking requests received </h2>
-      <% @booking.each do |booking| %>
-        <% if current_user == booking.car.user %>
-          <div class="card mb-3 rounded shadow" style="max-width: 540px;">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src=<%= booking.car.picture_url %>  class="img-fluid rounded-start request-card-picture" alt="...">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title"><strong><%= booking.car.brand %></strong></h5>
-                    <p class="card-text"><%= booking.user.first_name %> <%= booking.user.last_name %></p>
-                    <p class="card-text"><small class="text-body-secondary">From <%= booking.starting_date %> to <%= booking.ending_date %></small></p>
-                    <p class="card-text"><%= booking.status %></p>
-                    <% if booking.status == "Pending" %>
-                      <a class="btn btn-outline-primary" href=<%= edit_booking_path(booking)%> role="button">Review</a>
-                    <% end %>
+    <div>
+      <% if current_user.owner == true %>
+        <h2 class="mb-4 title"> Booking requests received </h2>
+        <% @bookings.each do |booking| %>
+          <% if current_user == booking.car.user %>
+            <div class="card mb-3 rounded shadow" style="max-width: 700px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src=<%= booking.car.picture_url %>  class="img-fluid rounded-start request-card-picture" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title"><strong><%= booking.car.brand %></strong></h5>
+                      <p class="card-text"><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+                      <p class="card-text"><small class="text-body-secondary">From <%= booking.starting_date.strftime("%d/%m/%Y") %> to <%= booking.ending_date.strftime("%d/%m/%Y") %></small></p>
+                      <%= render "shared/edit", car: booking.car, booking: booking %>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+          <% end %>
         <% end %>
       <% end %>
-
-      <% else %>
-          <h1>You are not a owner yet !</h1>
-          <%=link_to "Add a car to rent", new_car_path, class: "btn btn-primary"%>
-      <% end %>
-
+    </div>
   </div>
 </div>

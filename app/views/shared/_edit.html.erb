@@ -1,0 +1,14 @@
+<div class="container">
+  <% if booking.status == "Pending" %>
+    <%= simple_form_for(booking) do |f| %>
+    <%= f.input :status, collection: ["Accepted", "Rejected", "Pending"] %>
+    <div class="status-button">
+      <%= f.submit class: "btn btn-outline-primary" %>
+    </div>
+    <% end %>
+  <% elsif booking.status == "Accepted" %>
+    <p id="status-a">Accepted</p>
+  <% else %>
+    <p id="status-r">Rejected</p>
+  <% end %>
+</div>
