@@ -1,23 +1,17 @@
-<div class="container">
-  <h1>Booking request</h1>
-  <br>
-  <br>
 
-  <%= simple_form_for([@car, @booking]) do |f| %>
+<%= simple_form_for([car, booking]) do |f| %>
   <%if params[:start_date].present? %>
     <%=f.input :starting_date, as: :date, html5: true, input_html: { value: params[:start_date].to_date}%>
     <% else %>
     <%=f.input :starting_date, as: :date, html5: true%>
   <% end %>
-
-   <%if params[:end_date].present? %>
+  <%if params[:end_date].present? %>
     <%=f.input :ending_date, as: :date, html5: true, input_html: { value: params[:end_date].to_date}%>
-    <% else %>
+  <% else %>
     <%=f.input :ending_date, as: :date, html5: true%>
-  <% end %>
-  <% #end %>
-  <br>
-  <br>
-  <%= f.submit class: "btn btn-outline-primary"%>
+  <% end %>              
+    <br>
+    <%= f.submit "Request Booking", class: "btn btn-primary", id: "request"%>
 <% end %>
-</div>
+
+

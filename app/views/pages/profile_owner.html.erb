@@ -58,8 +58,10 @@
       <% end %>
 
       <% else %>
-          <h1>You are not a owner yet !</h1>
-          <%=link_to "Add a car to rent", new_car_path, class: "btn btn-primary"%>
+          <h1 class= "title">You are not a owner yet !</h1>
+          <br>
+          <br>
+          <%=link_to "Add a car to rent", new_car_path, class: "btn btn-outline-primary"%>
       <% end %>
 
   </div>
