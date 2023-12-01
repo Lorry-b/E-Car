@@ -6,15 +6,17 @@ class CarsController < ApplicationController
     end
 
     if params[:date_query].present?
-      @cars = @cars.where("start_availability <= ? AND end_availability >= ?", params[:date_query].to_datetime, params[:date_query].to_datetime)
+      @cars = @cars.where("start_availability <= ? AND end_availability >= ?", params[:date_query], params[:date_query].to_datetime)
     end
+    # raise
 
     if params[:end_date_query].present?
-      @cars = @cars.where("start_availability <= ? AND end_availability >= ?", params[:end_date_query].to_datetime, params[:end_date_query].to_datetime)
+      @cars = @cars.where("start_availability <= ? AND end_availability >= ?", params[:end_date_query], params[:end_date_query].to_datetime)
     end
   end
 
   def show
+    # raise
     @car = Car.find(params[:id])
     @booking = Booking.new
     # @car = Car.find(params[:car_id])

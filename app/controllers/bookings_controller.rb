@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @booking.car = @car
     @booking.user = @user
     if @booking.save
-      redirect_to profile_path, notice: "Booking request sent" #TODO change the redirect path to profile
+      redirect_to profile_path, notice: "Booking request sent"
     else
       render :new, status: :unprocessable_entity
     end
