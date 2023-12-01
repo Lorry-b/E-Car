@@ -1,4 +1,43 @@
-// .img-car {
-//   height: 200px;
-//   width: 400px;
-// }
+
+#form_new {
+  margin-top: 40px;
+  justify-content: left;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.im_car {
+  height: 500px;
+  object-fit: cover;
+}
+
+.infos {
+  height: 500px;
+  background-color: #B5D5C5;
+  color:black;
+}
+
+#car-infos {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 20px;
+}
+
+#location {
+  padding-top: 15px;
+  padding-bottom: 10px;
+  font-size: 28px;
+}
+
+#request {
+  background-color: #B4B4B3;
+  border: none;
+  color:white;
+}
+
+#category {
+  font-size: 40px;
+}

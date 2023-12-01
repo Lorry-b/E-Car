@@ -1,14 +1,10 @@
-<div class="container">
-  <h1>Booking request</h1>
-  <br>
-  <br>
-  <%= simple_form_for([@car, @booking]) do |f| %>
-  <%= f.input :starting_date %>
-  <%= f.input :ending_date %>
-  <br>
-  <br>
-  <%= f.submit class: "btn btn-outline-primary"%>
+<%= simple_form_for([car, booking]) do |f| %>
+  <div>
+      <%= f.input :starting_date, as: :date, html5: true %>
+  </div>
+  <div>
+      <%= f.input :ending_date, as: :date, html5: true %>
+  </div>
+    <br>
+    <%= f.submit "Request Booking", class: "btn btn-primary", id: "request"%>
 <% end %>
-</div>
-
-<%# , value: params...  %>
