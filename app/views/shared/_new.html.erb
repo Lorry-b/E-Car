@@ -1,13 +1,14 @@
 <div class="container">
   <h1>Booking request</h1>
   <br>
-  <%= @car.brand %>
-  <%= @car.category %>
-  <%= @car.location %>
-  <br><br>
+  <br>
   <%= simple_form_for([@car, @booking]) do |f| %>
   <%= f.input :starting_date %>
   <%= f.input :ending_date %>
-  <%= f.submit %>
+  <br>
+  <br>
+  <%= f.submit class: "btn btn-outline-primary"%>
 <% end %>
 </div>
+
+<%# , value: params...  %>

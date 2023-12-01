@@ -1,16 +1,26 @@
 <div class="container">
-<h1><strong><%= @car.brand %></strong></h1>
-<ul>
-    <li>category: <%= @car.category %></li>
-    <li>location: <%= @car.location %></li>
-    <li>start_availability: <%= @car.start_availability %></li>
-    <li>end_availability: <%= @car.end_availability%></li>
-    <li><%= image_tag @car.picture_url %></li>
-</ul>
+  <div>
+    <h1><strong><%= @car.brand %></strong></h1>
+  </div>
 
-<div>
-  <% if @car.user != current_user %>
-    <%= link_to "Request Booking", new_car_booking_path(@car), class:"btn btn-primary" %>
-  <% end %>
-</div>
+  <div class="row">
+
+    <div class = "col-7">
+      <%= image_tag @car.picture_url, class: "img-fluid" %>
+    </div>
+
+    <div class = "col-5 border border-dark bg-dark text-white">
+      <h3><em><%= @car.category%></em></h3>
+      <div>Location: <%= @car.location %></div>
+
+    <%= render "shared/new"%>
+
+    </div>
+  </div>
+
+  <div class = "mt-3">
+    <% if @car.user != current_user %>
+      <%= link_to "Request Booking", new_car_booking_path(@car), class:"btn btn-outline-primary" %>
+    <% end %>
+  </div>
 </div>
